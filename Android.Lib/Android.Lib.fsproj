@@ -4,18 +4,16 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{F2A71F9B-5D33-465A-A702-920D77279786}</ProjectTypeGuids>
-    <ProjectGuid>{81CAB45C-743C-49F3-BD51-B5B165D69364}</ProjectGuid>
+    <ProjectGuid>{2087AF6A-CEDF-4308-A698-C2DA39A20450}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>helloandroid</RootNamespace>
+    <RootNamespace>Shared.Lib</RootNamespace>
     <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
     <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
     <AndroidResgenClass>Resource</AndroidResgenClass>
     <AndroidResgenFile>Resources\Resource.designer.fs</AndroidResgenFile>
-    <AndroidApplication>True</AndroidApplication>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
-    <AssemblyName>hello-android</AssemblyName>
+    <AssemblyName>Android.Lib</AssemblyName>
     <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
-    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,29 +47,26 @@
     <Reference Include="mscorlib" />
     <Reference Include="FSharp.Core" />
     <Reference Include="Mono.Android" />
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.28\lib\monoandroid\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.28\lib\monoandroid\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Resources\Resource.designer.fs" />
-    <Compile Include="Properties\AssemblyInfo.fs" />
-    <Compile Include="MainActivity.fs" />
+    <Compile Include="..\iOS.Lib\Component1.fs">
+      <Link>Component1.fs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\AboutResources.txt" />
-    <None Include="Properties\AndroidManifest.xml" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidResource Include="Resources\layout\Main.axml" />
     <AndroidResource Include="Resources\values\Strings.xml" />
-    <AndroidResource Include="Resources\drawable\Icon.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <AndroidAsset Include="Assets\AboutAssets.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.FSharp.targets" />
-  <ItemGroup>
-    <ProjectReference Include="..\..\Android.Lib\Android.Lib.fsproj">
-      <Project>{2087AF6A-CEDF-4308-A698-C2DA39A20450}</Project>
-      <Name>Android.Lib</Name>
-    </ProjectReference>
-  </ItemGroup>
 </Project>

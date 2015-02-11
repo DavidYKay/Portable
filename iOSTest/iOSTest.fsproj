@@ -4,11 +4,11 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{F2A71F9B-5D33-465A-A702-920D77279786}</ProjectTypeGuids>
-    <ProjectGuid>{DA2F2D49-65AD-45EC-98E2-B45D76172090}</ProjectGuid>
+    <ProjectGuid>{405C5399-2051-4768-A92E-8BAA6B2B4662}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Hello</RootNamespace>
+    <RootNamespace>iOSTest</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
-    <AssemblyName>Hello</AssemblyName>
+    <AssemblyName>iOSTest</AssemblyName>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|iPhoneSimulator' ">
     <DebugSymbols>true</DebugSymbols>
@@ -109,21 +109,21 @@
     <Reference Include="mscorlib" />
     <Reference Include="FSharp.Core" />
     <Reference Include="Xamarin.iOS" />
+    <Reference Include="MonoTouch.NUnitLite" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Resources\Default-568h%402x.png" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="HelloViewController.fs" />
-    <Compile Include="AppDelegate.fs" />
+    <Compile Include="UnitTestAppDelegate.fs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.FSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\..\iOS.Lib\iOS.Lib.fsproj">
+    <ProjectReference Include="..\iOS.Lib\iOS.Lib.fsproj">
       <Project>{A34F737F-3ED6-48B4-9661-A6EFA3C97A7A}</Project>
       <Name>iOS.Lib</Name>
     </ProjectReference>
